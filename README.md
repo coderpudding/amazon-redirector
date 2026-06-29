@@ -1,4 +1,5 @@
 
+
 # My PMP
 
 > A prototype portable media player built around the ESP32-S3.
@@ -11,7 +12,7 @@ This is my first hardware project. Instead of designing a custom PCB immediately
 
 I wanted a dedicated music player for running without the distractions of a smartphone.
 
-The original concept was a clip-on device that simply plays music and gets out of the way. This prototype focuses on validating the hardware architecture before moving to a custom PCB and a much smaller enclosure.
+The original concept was a clip-on device that simply plays music and gets out of the way. This prototype focuses on validating the core hardware before moving to a custom PCB and a much smaller enclosure.
 
 ---
 
@@ -21,7 +22,7 @@ The original concept was a clip-on device that simply plays music and gets out o
 - Touchscreen interface
 - Built-in speaker
 - Wi-Fi music transfer
-- MicroSD storage
+- MicroSD card storage
 - Deep sleep support
 
 ---
@@ -30,7 +31,7 @@ The original concept was a clip-on device that simply plays music and gets out o
 
 The ESP32 hosts its own Wi-Fi access point.
 
-Connect to the device from your phone or laptop, open a browser, and drag and drop songs directly onto the SD card. No dedicated app or cable is required.
+Connect to the device from your phone or laptop, open a browser, and upload songs directly to the SD card. No dedicated app, card reader, or special software is required.
 
 ---
 
@@ -38,23 +39,23 @@ Connect to the device from your phone or laptop, open a browser, and drag and dr
 
 ![Circuit Diagram](circuitdiagram.png)
 
-The entire system is centered around the ESP32-S3. The display, touch controller, RTC, motion sensor, audio amplifier, charging module, and SD card are connected through SPI, I2C, I2S, and GPIO interfaces while keeping every pin conflict-free.
+The entire system is centered around the ESP32-S3. Audio is handled through an I2S amplifier, storage is provided by a MicroSD card, while the display, touch controller, RTC, and motion sensor communicate over SPI and I2C. Every GPIO was planned beforehand to avoid pin conflicts and simplify the firmware.
 
 ---
 
 ## Enclosure Design
 
-### Overall Design
+### Overall Enclosure
 
-![Overall CAD](overall-cad.png)
+![Overall Enclosure](Full enclosure.png)
 
-The enclosure was designed around the hardware instead of forcing the hardware to fit into an existing case. Every cutout, mounting point, and opening was added only after the internal layout was finalized.
+The enclosure was designed around the hardware rather than forcing the hardware to fit inside an existing case. The shell was built first, followed by the screen opening, speaker grille, USB-C cutout, SD card slot, and magnet mounting holes.
 
-### Internal Layout
+### Rear Panel
 
-![Internal Layout](internal-layout.png)
+![Back Mesh](back mesh.png)
 
-After creating the shell, each component was positioned as a dummy model inside the enclosure to verify spacing, port alignment, cable routing, and overall fit before printing.
+The rear panel contains the speaker grille, allowing sound to exit while maintaining the strength of the enclosure. Every opening was positioned to line up with the internal hardware before any printing.
 
 ---
 
@@ -66,18 +67,15 @@ The complete parts list, purchase links, and pricing can be found in [bom.csv](b
 
 ## Future Plans
 
-This prototype validates the overall hardware architecture.
-
-Future revisions will focus on:
+This prototype validates the overall hardware architecture. Future revisions will focus on:
 
 - Designing a custom PCB
 - Reducing the enclosure size
 - Returning to the original clip-on form factor
-- Improving battery integration
+- Better battery integration
 - Reducing internal wiring
 
 ---
 
 Built for **Macondo** 🚀
 ```
-
