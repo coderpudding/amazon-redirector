@@ -1,4 +1,4 @@
-```md
+
 # My PMP
 
 > A prototype portable media player built around the ESP32-S3.
