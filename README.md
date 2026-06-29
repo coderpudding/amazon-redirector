@@ -1,8 +1,9 @@
+```md
 # My PMP
 
 > A prototype portable media player built around the ESP32-S3.
 
-This is my first hardware project. The goal of this prototype is to validate the hardware architecture before moving to a custom PCB and a smaller clip-on design.
+This is my first hardware project. Instead of designing a custom PCB immediately, I built this prototype using off-the-shelf modules to learn the complete hardware design process. The long-term goal is to integrate everything onto a single PCB and turn it into the compact clip-on media player I originally envisioned.
 
 ---
 
@@ -10,7 +11,7 @@ This is my first hardware project. The goal of this prototype is to validate the
 
 I wanted a dedicated music player for running without the distractions of a smartphone.
 
-The original concept was a compact clip-on player with a touchscreen, onboard speaker, and wireless song transfer. This prototype focuses on proving the core hardware before building that final version.
+The original concept was a clip-on device that simply plays music and gets out of the way. This prototype focuses on validating the hardware architecture before moving to a custom PCB and a much smaller enclosure.
 
 ---
 
@@ -18,18 +19,18 @@ The original concept was a compact clip-on player with a touchscreen, onboard sp
 
 - Shake to wake
 - Touchscreen interface
-- Onboard speaker
-- Wi-Fi song transfer
+- Built-in speaker
+- Wi-Fi music transfer
+- MicroSD storage
 - Deep sleep support
-- SD card music storage
 
 ---
 
 ## Transferring Songs
 
-The ESP32 creates its own Wi-Fi access point.
+The ESP32 hosts its own Wi-Fi access point.
 
-Simply connect from your phone or laptop, open a browser, and upload songs directly to the SD card—no dedicated app required.
+Connect to the device from your phone or laptop, open a browser, and drag and drop songs directly onto the SD card. No dedicated app or cable is required.
 
 ---
 
@@ -37,32 +38,46 @@ Simply connect from your phone or laptop, open a browser, and upload songs direc
 
 ![Circuit Diagram](circuitdiagram.png)
 
-The entire system is centered around the ESP32-S3. Audio is handled through an I2S amplifier, storage comes from a MicroSD card, while the touchscreen, RTC, and motion sensor communicate over SPI and I2C.
+The entire system is centered around the ESP32-S3. The display, touch controller, RTC, motion sensor, audio amplifier, charging module, and SD card are connected through SPI, I2C, I2S, and GPIO interfaces while keeping every pin conflict-free.
 
 ---
 
 ## Enclosure Design
 
-![Enclosure Render](enclosure.png)
+### Overall Design
 
-The enclosure was designed around the hardware instead of forcing the hardware to fit inside an existing case.
+![Overall CAD](overall-cad.png)
 
-The shell was built first, followed by the screen opening, speaker grille, USB-C cutout, SD card slot, and magnet mounts. Every module was then positioned inside as a dummy model to verify clearances before printing.
+The enclosure was designed around the hardware instead of forcing the hardware to fit into an existing case. Every cutout, mounting point, and opening was added only after the internal layout was finalized.
+
+### Internal Layout
+
+![Internal Layout](internal-layout.png)
+
+After creating the shell, each component was positioned as a dummy model inside the enclosure to verify spacing, port alignment, cable routing, and overall fit before printing.
 
 ---
 
 ## Bill of Materials
 
-The complete parts list, prices, and purchase links are available in **bom.csv**.
+The complete parts list, purchase links, and pricing can be found in [bom.csv](bom.csv).
 
 ---
 
 ## Future Plans
 
-This prototype is the foundation for future revisions.
+This prototype validates the overall hardware architecture.
 
-- Custom PCB
-- Smaller enclosure
-- Original clip-on form factor
-- Better battery integration
-- Reduced wiring# amazon-redirector
+Future revisions will focus on:
+
+- Designing a custom PCB
+- Reducing the enclosure size
+- Returning to the original clip-on form factor
+- Improving battery integration
+- Reducing internal wiring
+
+---
+
+Built for **Macondo** 🚀
+```
+
